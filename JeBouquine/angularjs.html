@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html ng-app="appDemo">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Demo Test</title>
+    <meta charset="utf-8" />
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="DemoControlleur">
+        <div class="container">
+            <div ng-messages="formDemo.nom.$error" class="text-danger">
+                <div ng-message="required">
+                    Champ requis
+                </div> <div ng-message="minlength">
+                    Valeur trop courte
+                </div> <div ng-message="maxlength">
+                    Valeur trop longue
+                </div>
+            </div>
+            <div class="row" style="margin-top:40px;">
+                <h3 class="col-lg-12 text-center">
+                    <span>
+                        <i class="glyphicon glyphicon-user"></i>
+                    </span> Créer un compte {{Compte.Nom}}{{Compte.Prenom}}
+                </h3>
+            </div>
+        </div>
+        <form name="form Demo" style="margin-top:40px;">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group col-lg-2 col-lg-offset-1">
+                            <label class="control-label">
+                                Sexe
+                            </label> <select class="form-control" ng-options="s.Codeass.LibelleforsinSexes" ng-model="Compte.Sexe" ng-required="true">
+                                <option value="H">
+                                    Homme
+                                </option>
+                                <option value="F">
+                                    Femme
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-4 col-md-5 col-sm-6 col-xs-12">
+                            <label class="control-label" for="prenom">
+                                Prénom
+                            </label> <input type="text" class="form-control" id="prenom" name="prenom" ng-model="Compte.Prenomng-required=" true" ng-maxlength="50" ng-minlength="6" ">
+                        </div>
+                        <div class="form-group col-lg-4 col-md-5 col-sm-6 col-xs-12">
+                            <label class="control-label" for="txtNom">
+                                Nom
+                            </label> <input type="text" class="form-control" id="nom" name="nom" ng-model="Compte.Nom" ng-required="true" ng-maxlength="50" ng-minlength="6">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group col-lg-10 col-md-10 col-lg-offset-1">
+                            <label class="control-label" for="email">Adresse e-mail</label>
+                            <input type="text" class="form-control" id="email" name="email" ng-model="Compte.Email" ng-required="true">
+                        </div>
+                    </div>
+                    <div>
+                        <div class='text-center'>
+                            <div class="btn-group">
+                                <button type="button" id="btnValide" name="btnValide" class="btn btn-primary center-block" ng-click="Valider()"> Valider </button>
+                                <button type="button" id="btnAnnuler" name="btnAnnuler" class="btn btn-info center-block" ng-click="Annuler()"> Annuler </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+  
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-messages.js"></script>
+    <script src="app/app.js" type="text/javascript"></script>
+    <script src="app/Controlleur/DemoControlleur.js" type="text/javascript"></script>
+ 
+    
+</body>
+</html>
